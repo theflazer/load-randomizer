@@ -4,7 +4,9 @@
   "description": "NodeJS based HTTP request forwarding server designed to emulate the behavior of a load balancer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   "dependencies": {
     "express": "^4.15.4",
     "lodash": "^4.17.4",
+    "ngrok": "^2.2.17",
     "request": "^2.81.0"
   }
 }
