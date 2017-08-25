@@ -26,12 +26,13 @@ server.listen(listenPort, '0.0.0.0', () => {
     })
   }
   console.log('Express server listening on 4000');
+  console.log();
   app.use('/', (req, res) => {
     const ports = getPorts();
     var url = _.round(Math.random()) === 1 ?
-      `http://0.0.0.0:${_.get(ports, '[0]', 3000)}`
+      `http://0.0.0.0:${_.get(ports, '[0]', 3000)}${req.originalUrl}`
       :
-      `http://0.0.0.0:${_.get(ports, '[1]', 3001)}`
+      `http://0.0.0.0:${_.get(ports, '[1]', 3000)}${req.originalUrl}`
     console.log(`Request for '${req.path}' => ${url}`);
     req.pipe(request(url)).pipe(res);
   });
